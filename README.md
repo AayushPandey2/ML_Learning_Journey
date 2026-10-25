@@ -16,8 +16,9 @@ Each project is organized as a Jupyter Notebook, with an aim to understand the c
 ## Models
 
 | # | Model | Type | Notebook |
-|---|---|---|---|
-| 1 | Multiple Linear Regression | Supervised Learning / Regression | [Open Notebook](./multiple-linear-regression/multiple_linear_regression.ipynb) |
+| - | --- | --- | --- |
+| 1 | Car Price Predictor | Supervised Learning / Regression | [Open Notebook](https://github.com/AayushPandey2/ML_Learning_Journey/blob/main/Machine%20Learning/Supervised%20Learning/Regression/MLR/Car%20Price%20Predictor.ipynb) |
+| 2 | Salary Predictor | Supervised Learning / Regression | [Open Notebook](https://github.com/AayushPandey2/ML_Learning_Journey/blob/main/Machine%20Learning/Supervised%20Learning/Regression/SLR/Simple_Linear_Regression.ipynb) |
 
 ## Tech Stack
 
