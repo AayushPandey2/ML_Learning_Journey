@@ -1,46 +1,44 @@
-# ML_Learning_Journey
+# ML Learning Journey
+
 Welcome to my machine learning learning journey! 👋
 
 This repository contains the machine learning models, experiments, and notes I build while learning.
 
 Each project is organized as a Jupyter Notebook, with an aim to understand the concepts behind the model as well as its practical implementation in Python.
 
-What you'll find here
+## What you'll find here
 
-Machine learning algorithms implemented in Python
+- Machine learning algorithms implemented in Python
+- Jupyter Notebooks for each model or experiment
+- Data exploration, preprocessing, training, and evaluation
+- Notes and observations from my learning process
 
-Jupyter Notebooks for each model or experiment
+## Models
 
-Data exploration, preprocessing, training, and evaluation
+| # | Model | Type | Notebook |
+|---|---|---|---|
+| 1 | Multiple Linear Regression | Supervised Learning / Regression | [Open Notebook](./multiple-linear-regression/multiple_linear_regression.ipynb) |
 
-Notes and observations from my learning process
+## Tech Stack
 
-Models
+- Python
+- Jupyter Notebook
+- NumPy
+- Pandas
+- Matplotlib / Seaborn
+- Scikit-learn
 
-#
 
-Model
-
-Type
-
-Notebook
-
-1
-
-Multiple Linear Regression
-
-Supervised Learning / Regression
-
-Open Notebook
-
-Goal
+## Goal
 
 My goal is to build a strong foundation in machine learning by consistently learning, implementing, and documenting different algorithms and projects.
 
 This repository will grow as I continue my journey.
 
-Connect
+## Connect
 
 Feel free to explore the notebooks, share suggestions, or connect with me!
+
+---
 
 ⭐ If you find this repository helpful, consider giving it a star.
