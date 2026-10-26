@@ -1,4 +1,4 @@
-Logistic Regression
+# Logistic Regression
 
 Logistic regression is a **supervised machine-learning algorithm** used mainly for **classification**. Despite its name, it does not predict a continuous number like linear regression. Instead, it estimates the probability that an observation belongs to a class.
 
@@ -24,9 +24,9 @@ It returns a probability, for example `0.82`, which means the model estimates an
 
 The model combines input features using weights and a bias:
 
-\[
-z = w_1x_1 + w_2x_2 + \dots + w_nx_n + b
-\]
+```text
+z = w₁x₁ + w₂x₂ + ... + wₙxₙ + b
+```
 
 where:
 
@@ -39,15 +39,15 @@ where:
 
 The score can be any number, but a probability must be between 0 and 1. Logistic regression uses the sigmoid function:
 
-\[
-\sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+```text
+sigmoid(z) = 1 / (1 + e⁻ᶻ)
+```
 
 The predicted probability is therefore:
 
-\[
-\hat{y} = P(y=1 \mid x) = \sigma(w^Tx+b)
-\]
+```text
+ŷ = P(y = 1 given x) = sigmoid(wᵀx + b)
+```
 
 Key behaviour:
 
@@ -72,9 +72,9 @@ The threshold can be adjusted. For example, in disease screening a lower thresho
 
 With the default threshold, the boundary occurs where:
 
-\[
-w^Tx+b=0
-\]
+```text
+wᵀx + b = 0
+```
 
 This makes logistic regression a model with a **linear decision boundary** in the original feature space. It does not need perfectly linearly separable data, but it is most suitable when the classes can be reasonably separated by a linear relationship between the selected features.
 
@@ -82,9 +82,9 @@ This makes logistic regression a model with a **linear decision boundary** in th
 
 For one example, logistic regression uses **binary cross-entropy loss** (also called log loss):
 
-\[
-L(y,\hat{y})=-\left[y\log(\hat{y})+(1-y)\log(1-\hat{y})\right]
-\]
+```text
+L(y, ŷ) = −[y log(ŷ) + (1 − y) log(1 − ŷ)]
+```
 
 This loss penalizes confident wrong predictions heavily:
 
@@ -94,10 +94,10 @@ This loss penalizes confident wrong predictions heavily:
 
 For `m` training examples, the cost is the average loss:
 
-\[
-J(w,b)=-\frac{1}{m}\sum_{i=1}^{m}
-\left[y^{(i)}\log(\hat{y}^{(i)})+(1-y^{(i)})\log(1-\hat{y}^{(i)})\right]
-\]
+```text
+J(w, b) = −(1/m) Σ from i = 1 to m of
+          [y⁽ⁱ⁾ log(ŷ⁽ⁱ⁾) + (1 − y⁽ⁱ⁾) log(1 − ŷ⁽ⁱ⁾)]
+```
 
 The model learns weights and bias that minimize this cost. This is equivalent to maximizing the likelihood of the observed labels.
 
@@ -140,21 +140,21 @@ Use a confusion matrix and class-specific metrics, not accuracy alone.
 
 Important metrics:
 
-\[
-\text{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN}
-\]
+```text
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+```
 
-\[
-\text{Precision}=\frac{TP}{TP+FP}
-\]
+```text
+Precision = TP / (TP + FP)
+```
 
-\[
-\text{Recall}=\frac{TP}{TP+FN}
-\]
+```text
+Recall = TP / (TP + FN)
+```
 
-\[
-F_1=2\cdot\frac{\text{Precision}\cdot\text{Recall}}{\text{Precision}+\text{Recall}}
-\]
+```text
+F1-score = 2 × (Precision × Recall) / (Precision + Recall)
+```
 
 For imbalanced datasets, precision, recall, F1-score, ROC-AUC, and a confusion matrix are generally more informative than accuracy alone.
 
@@ -174,3 +174,29 @@ For imbalanced datasets, precision, recall, F1-score, ROC-AUC, and a confusion m
 - It can overfit high-dimensional data without appropriate regularization.
 - Outliers and strongly correlated features can affect coefficient estimates.
 - Class imbalance needs deliberate evaluation and possibly class weighting or resampling.
+
+## Minimal Python example
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, confusion_matrix
+
+# X contains input features; y contains labels (0 or 1)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+y_prob = model.predict_proba(X_test)[:, 1]
+
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+```
+
+## Summary
+
+Logistic regression computes a linear score, passes it through a sigmoid function, and uses the resulting probability to classify an observation. It is a strong baseline for binary classification and is especially useful when probability estimates and interpretability matter.
